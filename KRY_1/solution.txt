@@ -1,0 +1,33 @@
+Adam Kučík (login:xkucik00 - id:241451)
+
+1. Dešifrovanie číselnej stanice
+Prvá časť úlohy vyžadovala získať súradnice skrýše agenta. Ako prvé som si vypočul nahrávku xkucik00.mp3.
+Z nej som si vypísal sekvenciu čísiel po dvojiciach na základe formátu kódovej knihy: 78 17 83 78 81 74 25 67 67 45 46.
+Pomocou kódovej knihy som každej číselnej hodnote priradil korešpondenčný znak a získal som súradnice JPKJ7LC88F.
+
+Hodnota 46 neobsahovala žiadny znak v kódovej knihe, takže som sa rozhodol ju nechať ako prázdny znak. 
+Následne som do systému https://deepfakes.fit.vut.cz/KRY/JPKJ7LC88F/ zadal súradnice a dostal som sa do tajnej skrýše agenta PHANTOMA.
+
+2. Dešifrovanie šifry
+V tajnej skrýši sa nachádzalo 5 rozkazov a k nim 5 šifrovaných správ, ktoré vyzerali následovne:
+- TLGTPVOQIPZCBUPNENBPIRKMPCTMDPCDZGPLNIWPTIXGPEEZBPIQTKPMOQWPVI
+- TJJQPTWOBPTQBNPOLVFPVCMLPODAWPCUROPAKPBPZTLKPOTWLPSRLH
+- YNCPPYVMAPJQVKPABJTPNYRKPHPBUPWQWJPJZLEPVSQFPWLPOPWJGNPN
+- VIEPPZORFPFOIJPUDSTPZUIBPGSTGPEQERPORZAPYUEVPTIYNPYLETPTE
+- TLCUPUTUIPZCBCPFIVMPXIPVPWTCSPSHQCPPZSVPMLWGPUWMHPSVWCPTJSBPSVWI
+
+V rámci dešifrovania som skúšal ako prvé identifikovať šifru. 
+Podľa hodnôt index of coincidence (IC) sa ako prvé ponúkala monoalfabetická šifra. 
+Pri pokusoch prelomiť šifru frekvenčnou charakteristikou vyčnieval znak P, ktorý sa nachádzal až v 21 % prípadov. 
+Po bližšej analýze sa ukázalo, že každý piaty znak je P a javí sa nadbytočne. 
+Keď sa v každom bloku znak P vymazal na piatej pozícii, hodnota IC klesla približne na 0.044. 
+Z toho som identifikoval, že sa jedná o Vigenère šifru.
+
+Keď som vedel, že sa jedna o Vigenèra, tak som šifru skúsil prelomiť.
+To sa podarilo keď som pre každú šifru hľadal agentove meno PHANTOMA v správe.
+Následne som dostal jednotlivé dešifrované správy:
+- PHANTOMAVYVOLEJTENEGATIVYZTAJNEOPERACEVTEMNEKOMORE
+- PHANTOMAPOSKODTERADIOVYVYSILACNAVRCHOLUKOPCE
+- PHANTOMAAKTIVUJTESPICIBUNKUHESLEMMODREPONDELI
+- PHANTOMAZNEHODNOTTEZASOBYPAPIRUVSTATNITISKARNE
+- PHANTOMAVYZVEDNETENOVOUKODOVOUKNIHUZTREZORUVSEKTORUB
